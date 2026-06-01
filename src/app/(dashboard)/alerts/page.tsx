@@ -18,10 +18,10 @@ const sevStyles: Record<string, { text: string; bg: string; border: string; dot:
 };
 
 const typeLabel: Record<string, string> = {
-  confusion: '🔀 Confusion',
-  social_hype: '📱 Social Hype',
-  abnormal_movement: '📈 Price Anomaly',
-  news_spike: '📰 News Spike',
+  confusion: 'Confusion',
+  social_hype: 'Social Hype',
+  abnormal_movement: 'Price Anomaly',
+  news_spike: 'News Spike',
 };
 
 type SevFilter = 'all' | 'critical' | 'high' | 'medium' | 'low';

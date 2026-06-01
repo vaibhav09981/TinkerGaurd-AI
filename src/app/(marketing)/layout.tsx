@@ -41,9 +41,9 @@ export default function MarketingLayout({
             </Link>
 
             {/* Desktop Navigation Link Menu */}
-            <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-400 font-medium">
+            <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-300 font-medium">
               <Link href="/features" className="hover:text-white transition">Features</Link>
-              <Link href="/investigations" className="hover:text-white transition flex items-center gap-1.5">
+              <Link href="/dashboard/investigations" className="hover:text-white transition flex items-center gap-1.5">
                 Investigations 
                 <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] bg-zinc-800 text-brand-yellow border border-brand-yellow/20">Active</span>
               </Link>
@@ -83,19 +83,19 @@ export default function MarketingLayout({
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden border-b border-[#1A1A1A] bg-[#0A0A0A] px-4 pt-2 pb-6 flex flex-col gap-4 text-sm font-medium">
-            <Link href="/features" className="text-zinc-400 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>Features</Link>
-            <Link href="/investigations" className="text-zinc-400 hover:text-white transition py-1 flex items-center justify-between" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/features" className="text-zinc-300 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>Features</Link>
+            <Link href="/dashboard/investigations" className="text-zinc-300 hover:text-white transition py-1 flex items-center justify-between" onClick={() => setMobileMenuOpen(false)}>
               <span>Investigations</span>
               <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-zinc-800 text-brand-yellow">Active</span>
             </Link>
-            <Link href="/blog" className="text-zinc-400 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>Research Blog</Link>
-            <Link href="/pricing" className="text-zinc-400 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
-            <Link href="/about" className="text-zinc-400 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>About</Link>
-            <Link href="/contact" className="text-zinc-400 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+            <Link href="/blog" className="text-zinc-300 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>Research Blog</Link>
+            <Link href="/pricing" className="text-zinc-300 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+            <Link href="/about" className="text-zinc-300 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>About</Link>
+            <Link href="/contact" className="text-zinc-300 hover:text-white transition py-1" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
             <div className="h-px bg-zinc-800/80 my-1" />
             <Link 
               href="/dashboard" 
-              className="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-lg border border-zinc-800 text-zinc-300 font-semibold text-xs"
+              className="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-lg border border-zinc-800 text-zinc-200 font-semibold text-xs"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Activity className="w-3.5 h-3.5 text-brand-green" />

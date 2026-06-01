@@ -143,7 +143,7 @@ const fadeUp = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   }),
 };
 
@@ -226,7 +226,7 @@ export default function LandingPage() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
           <Link
-            href="/investigations"
+            href="/dashboard/investigations"
             className="flex items-center gap-2 px-6 py-3 rounded-xl border border-[#262626] text-zinc-300 text-sm font-semibold hover:border-zinc-600 hover:text-white hover:bg-white/5 transition-all"
           >
             <Shield className="w-4 h-4 text-[#00E5A8]" />

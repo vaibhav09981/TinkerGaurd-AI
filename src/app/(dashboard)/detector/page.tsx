@@ -93,7 +93,7 @@ export default function DetectorPage() {
             <div>
               <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Confusion Score</p>
               <p className="text-6xl font-black mt-1" style={{ color: scoreColor }}>{result.score}</p>
-              <p className="text-sm font-bold mt-1 capitalize" style={{ color: scoreColor }}>{result.level === 'monitor' ? '⚠ Monitor' : result.level === 'high' ? '🔶 High Risk' : result.level === 'critical' ? '🚨 Critical' : '✅ Safe'}</p>
+              <p className="text-sm font-bold mt-1 capitalize" style={{ color: scoreColor }}>{result.level === 'monitor' ? 'WARNING Monitor' : result.level === 'high' ? 'WARNING High Risk' : result.level === 'critical' ? 'ALERT Critical' : 'Safe'}</p>
             </div>
             {/* Circular gauge */}
             <div className="relative w-24 h-24">

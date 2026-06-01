@@ -261,7 +261,7 @@ ${inv.sources.map(s => `* ${s}`).join('\n')}
     let answer = '';
 
     if (q.includes('parle') || q.includes('melody') || q.includes('biscuit')) {
-      answer = `### 🚨 Parle Confectionery vs. Paper Stock Confusion
+      answer = `### Parle Confectionery vs. Paper Stock Confusion
 
 **Parle Products Private Limited** (which makes Parle-G biscuits, Melody, Kismi, and Hide & Seek) is a **completely unlisted private company**. 
 
@@ -269,7 +269,7 @@ ${inv.sources.map(s => `* ${s}`).join('\n')}
 
 They have **zero** common ownership or business relation! Whenever Parle-G goes viral or announces expansion, retail investors mistakenly buy **PARLEIND** stock by mistake, causing temporary unjustified rallies. Always double check listing details!`;
     } else if (q.includes('signal') || q.includes('musk') || q.includes('sigl')) {
-      answer = `### 📱 The Elon Musk "Use Signal" Market Case
+      answer = `### The Elon Musk "Use Signal" Market Case
 
 In January 2021, Elon Musk tweeted a simple endorsement: **"Use Signal"** (referring to the secure, private encrypted messaging app).
 
@@ -277,13 +277,13 @@ Because the Signal app is managed by the unlisted non-profit **Signal Foundation
 
 This name confusion inflated **SIGL** stock value by **11,000%** in just three days, going from $0.60 to over $70 per share, before crashing heavily. This is a premier warning case of ticker symbol mistakes.`;
     } else if (q.includes('zoom') || q.includes('zm') || q.includes('otc')) {
-      answer = `### 📹 Zoom Video (ZM) vs. Zoom Technologies (ZOOM)
+      answer = `### Zoom Video (ZM) vs. Zoom Technologies (ZOOM)
 
 During high-volume cycles, investors seeking **Zoom Video Communications, Inc. (NASDAQ: ZM)** frequently buy shares of **Zoom Technologies, Inc. (OTC: ZOOM)** by mistake.
 
 While **ZM** is the major video meetings corporation, **ZOOM** was an inactive OTC shell. The SEC had to repeatedly halt trading on the OTC ticker "ZOOM" to protect retail investors from trading losses caused by simple word association.`;
     } else {
-      answer = `### 🛡️ TickerGuard AI Forensic Analysis
+      answer = `### TickerGuard AI Forensic Analysis
 
 Thank you for querying. Our neural database actively tracks your keyword **"${query}"** across corporate databases. 
 

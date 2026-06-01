@@ -85,7 +85,7 @@ export default function NewsPage() {
                   : 'bg-[#111111] text-zinc-400 border border-[#1A1A1A] hover:text-white hover:border-[#262626]'
               }`}
             >
-              {f === 'high-risk' ? '⚠ High Risk' : f === 'confusion' ? '🔀 Confusion' : f === 'viral' ? '🔥 Viral' : 'All'}
+              {f === 'high-risk' ? 'High Risk' : f === 'confusion' ? 'Confusion Event' : f === 'viral' ? 'Viral' : 'All'}
             </button>
           ))}
         </div>
@@ -113,7 +113,7 @@ export default function NewsPage() {
                     )}
                     {article.isViral && (
                       <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FFC857]/10 text-[#FFC857] border border-[#FFC857]/20 uppercase tracking-wider">
-                        🔥 Viral
+                         Viral
                       </span>
                     )}
                   </div>
