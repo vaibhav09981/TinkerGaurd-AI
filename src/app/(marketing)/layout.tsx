@@ -134,10 +134,10 @@ export default function MarketingLayout({
           {/* Links 1 */}
           <div className="flex flex-col gap-3">
             <h4 className="text-xs font-semibold text-white tracking-widest uppercase">Intelligence Toolset</h4>
-            <Link href="/dashboard" className="text-xs text-zinc-400 hover:text-white transition">Identity Matcher</Link>
-            <Link href="/dashboard" className="text-xs text-zinc-400 hover:text-white transition">Social Media Monitor</Link>
-            <Link href="/dashboard" className="text-xs text-zinc-400 hover:text-white transition">News Sentiment Analysis</Link>
-            <Link href="/dashboard" className="text-xs text-zinc-400 hover:text-white transition">Market Anomalies</Link>
+            <Link href="/dashboard/detector" className="text-xs text-zinc-400 hover:text-white transition">Identity Matcher</Link>
+            <Link href="/dashboard/news" className="text-xs text-zinc-400 hover:text-white transition">Social Media Monitor</Link>
+            <Link href="/dashboard/news" className="text-xs text-zinc-400 hover:text-white transition">News Sentiment Analysis</Link>
+            <Link href="/dashboard/alerts" className="text-xs text-zinc-400 hover:text-white transition">Market Anomalies</Link>
           </div>
 
           {/* Links 2 */}
