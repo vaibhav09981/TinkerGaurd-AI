@@ -99,8 +99,8 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 lg:px-8 py-20 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="px-4 sm:px-6 lg:px-8 py-24 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {FEATURES.map((f, i) => {
             const Icon = f.icon;
             return (
