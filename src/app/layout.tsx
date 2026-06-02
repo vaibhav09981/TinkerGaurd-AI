@@ -13,7 +13,15 @@ export const metadata: Metadata = {
   keywords: ["financial intelligence", "stock market", "brand confusion", "ticker matching", "speculative alerts", "retail trading protection"],
   icons: {
     icon: "/favicon.ico",
-  }
+  },
+  openGraph: {
+    title: "TickerGuard AI — Detect Market Confusion & Brand Mismatches",
+    description: "Advanced AI-powered financial intelligence. Detect stock market misinformation, listed vs unlisted confusion, ticker-symbol mistakes, and social sentiment pumps in real-time.",
+    url: "https://tickerguard.ai",
+    siteName: "TickerGuard AI",
+    images: ["/og-image.png"],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -22,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased dark`}>
-      <body className={`${inter.className} min-h-full bg-[#0A0A0A] text-white flex flex-col`}>
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+      <body className={`${inter.className} min-h-full bg-background text-foreground flex flex-col`}>
         {children}
       </body>
     </html>

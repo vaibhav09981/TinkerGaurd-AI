@@ -20,51 +20,70 @@ export default function AboutPage() {
       <section className="relative min-h-[50vh] flex flex-col items-center justify-center text-center px-4 pt-24 pb-16 overflow-hidden bg-grid-pattern">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-blue-500/6 rounded-full blur-[140px] pointer-events-none" />
         <div className="relative">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#262626] text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-6">
-            <Shield className="w-3.5 h-3.5 text-[#00E5A8]" />
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-6">
+            <Shield className="w-3.5 h-3.5 text-muted-foreground" />
             About Us
           </span>
-          <h1 className="max-w-4xl text-4xl sm:text-5xl font-bold tracking-tight leading-tight text-white">
-            Defending Investors from <span className="text-[#00E5A8]">Market Confusion</span>
+          <h1 className="max-w-4xl text-4xl sm:text-5xl font-bold tracking-tight leading-tight text-foreground">
+            Defending Investors from <span className="text-muted-foreground">Market Confusion</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-base text-zinc-400 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-base text-muted-foreground leading-relaxed">
             TickerGuard AI was built with a simple mission: stop investors from buying the wrong company because of a name similarity. Every day, thousands of retail traders lose money because they confuse an unlisted brand with a listed ticker — or buy an OTC shell thinking it's a major corporation.
           </p>
         </div>
       </section>
 
+      {/* Why We Built This */}
+      <section className="px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto w-full">
+        <h2 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight mb-6">
+          Why We Built TickerGuard AI
+        </h2>
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
+          Every day, thousands of investors lose money not because of bad analysis, but because of simple mistakes—buying the wrong company due to confusing ticker symbols or brand names. We built TickerGuard AI to eliminate these costly errors at the source, giving retail investors the same powerful tools once reserved for institutional traders.
+        </p>
+        <p className="text-base text-muted-foreground leading-relaxed mb-6">
+          Our proprietary scoring engine analyzes name similarity, social media mentions, news sentiment, and price movement patterns to detect potential confusion before it impacts your portfolio. By combining real-time data with advanced AI algorithms, we provide early warnings that help investors make informed decisions and avoid costly mistakes.
+        </p>
+      </section>
+
+      {/* Values Grid */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="max-w-800px mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {VALUES.map((v, i) => {
             const Icon = v.icon;
             return (
               <div
                 key={v.title}
-                className="flex flex-col gap-4 p-6 rounded-2xl bg-[#111111] border border-[#1A1A1A] hover:border-[#262626] transition"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                className="flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border hover:border-muted-foreground/20 transition"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#00E5A8]/10 border border-[#00E5A8]/20 flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-[#00E5A8]" />
+                <div className="w-10 h-10 rounded-xl bg-muted border border-border flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-muted-foreground" />
                 </div>
-                <h3 className="text-sm font-bold text-white">{v.title}</h3>
-                <p className="text-xs text-zinc-500 leading-relaxed">{v.desc}</p>
+                <h3 className="text-sm font-bold text-foreground">{v.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{v.desc}</p>
               </div>
             );
           })}
         </div>
+      </section>
 
-        <div className="mt-16 p-8 rounded-2xl bg-[#111111] border border-[#1A1A1A] text-center">
-          <h2 className="text-xl font-bold text-white mb-3">Ready to Protect Your Trades?</h2>
-          <p className="text-xs text-zinc-500 max-w-lg mx-auto mb-6">
-            Join thousands of investors who use TickerGuard AI to validate every trade before confusion costs them money.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/dashboard" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#00E5A8] text-black text-sm font-bold hover:bg-[#00E5A8]/90 transition shadow-[0_0_15px_rgba(0,229,168,0.2)]">
-              Open Dashboard <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/contact" className="flex items-center gap-2 px-6 py-3 rounded-xl border border-[#262626] text-zinc-300 text-sm font-semibold hover:text-white hover:border-zinc-600 transition">
-              Contact Us
-            </Link>
+      {/* CTA Block */}
+      <section className="px-4 sm:px-6 lg:px-8 py-16 max-w-7xl mx-auto w-full">
+        <div className="max-w-3xl mx-auto">
+          <div className="w-full h-px bg-border my-6" />
+          <div className="p-8 rounded-2xl bg-card border border-border text-center">
+            <h2 className="text-xl font-bold text-foreground mb-3">Ready to Protect Your Trades?</h2>
+            <p className="text-xs text-muted-foreground max-w-lg mx-auto mb-6">
+              Join thousands of investors who use TickerGuard AI to validate every trade before confusion costs them money.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/dashboard" className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-bold hover:bg-primary/90 transition">
+                Open Dashboard <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/contact" className="flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-muted-foreground text-sm font-semibold hover:text-foreground hover:border-muted-foreground transition">
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       </section>

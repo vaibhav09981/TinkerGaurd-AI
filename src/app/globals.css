@@ -10,6 +10,8 @@
   --accent-red: #FF5A5A;
   --accent-yellow: #FFC857;
   
+  --cta-color: #E8EAE9;
+  
   --border-dim: #1A1A1A;
   --border-bright: #262626;
   --text-secondary: #A1A1AA;
@@ -24,6 +26,7 @@
   --color-brand-green: var(--accent-green);
   --color-brand-red: var(--accent-red);
   --color-brand-yellow: var(--accent-yellow);
+  --color-cta: var(--cta-color);
   
   --color-border-dim: var(--border-dim);
   --color-border-bright: var(--border-bright);
