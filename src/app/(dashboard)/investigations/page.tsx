@@ -11,63 +11,63 @@ const INVESTIGATIONS = [
 ];
 
 const sevStyle: Record<string, string> = {
-  critical: 'text-[#FF5A5A] bg-[#FF5A5A]/10 border-[#FF5A5A]/25',
+  critical: 'text-destructive bg-destructive/10 border-destructive/25',
   high: 'text-orange-400 bg-orange-400/10 border-orange-400/25',
-  medium: 'text-[#FFC857] bg-[#FFC857]/10 border-[#FFC857]/25',
+  medium: 'text-warning bg-warning/10 border-warning/25',
 };
 
 export default function InvestigationsPage() {
   return (
     <div className="flex flex-col gap-6 max-w-4xl">
-      <div>
-        <h1 className="text-2xl font-bold text-white">AI Investigations</h1>
-        <p className="mt-1 text-sm text-zinc-500">Forensic AI reports generated for each detected market confusion event.</p>
-      </div>
+        <div>
+         <h1 className="text-2xl font-bold text-foreground tracking-tight">AI Investigations</h1>
+         <p className="mt-1 text-sm text-muted-foreground">Forensic AI reports generated for each detected market confusion event.</p>
+       </div>
 
       <div className="flex flex-col gap-5">
         {INVESTIGATIONS.map((inv, i) => (
           <motion.div key={inv.id} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}
-            className="flex flex-col gap-4 p-6 rounded-2xl bg-[#111111] border border-[#1A1A1A] hover:border-[#262626] group transition">
+            className="flex flex-col gap-4 p-6 rounded-2xl bg-card/80 border border-border glass-panel-hover group transition">
             
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${sevStyle[inv.severity]}`}>{inv.severity}</span>
-                  <span className="text-[10px] text-zinc-600 font-mono">{inv.id}</span>
+                  <span className="text-[10px] text-muted-foreground font-mono">{inv.id}</span>
                 </div>
-                <h3 className="text-sm font-bold text-white group-hover:text-[#00E5A8] transition-colors">{inv.title}</h3>
-                <p className="mt-1.5 text-xs text-zinc-500 leading-relaxed">{inv.summary}</p>
+                  <h3 className="text-sm font-bold text-foreground group-hover:text-muted-foreground transition-colors">{inv.title}</h3>
+                  <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{inv.summary}</p>
               </div>
-              <FileText className="w-5 h-5 text-zinc-700 shrink-0 group-hover:text-[#00E5A8] transition" />
+              <FileText className="w-5 h-5 text-zinc-700 shrink-0 group-hover:text-success transition" />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="p-3 rounded-xl bg-[#0A0A0A] border border-[#1A1A1A]">
-                <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-wider mb-1">Root Cause</p>
-                <p className="text-xs text-zinc-400 leading-relaxed">{inv.rootCause}</p>
-              </div>
-              <div className="p-3 rounded-xl bg-[#0A0A0A] border border-[#1A1A1A]">
-                <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-wider mb-1">Market Impact</p>
-                <p className="text-xs text-[#FFC857] font-semibold leading-relaxed">{inv.marketImpact}</p>
-              </div>
-            </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+               <div className="p-3 rounded-xl bg-background border border-border">
+                 <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Root Cause</p>
+                 <p className="text-xs text-muted-foreground leading-relaxed">{inv.rootCause}</p>
+               </div>
+               <div className="p-3 rounded-xl bg-background border border-border">
+                 <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Market Impact</p>
+                 <p className="text-xs text-warning font-semibold leading-relaxed">{inv.marketImpact}</p>
+               </div>
+             </div>
 
-            <div className="p-3 rounded-xl bg-[#FF5A5A]/5 border border-[#FF5A5A]/15">
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="w-3.5 h-3.5 text-[#FF5A5A] shrink-0 mt-0.5" />
-                <p className="text-xs text-zinc-300 leading-relaxed"><span className="font-bold text-[#FF5A5A]">Investor Warning: </span>{inv.investorWarning}</p>
-              </div>
-            </div>
+             <div className="p-3 rounded-xl bg-destructive/5 border border-destructive/15">
+               <div className="flex items-start gap-2">
+                 <AlertTriangle className="w-3.5 h-3.5 text-destructive shrink-0 mt-0.5" />
+                 <p className="text-xs text-foreground leading-relaxed"><span className="font-bold text-destructive">Investor Warning: </span>{inv.investorWarning}</p>
+               </div>
+             </div>
 
-            <div className="flex items-center justify-between pt-1">
-              <div className="flex flex-wrap gap-2">
-                {inv.affectedCompanies.split(', ').map(s => (
-                  <span key={s} className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#1A1A1A] text-zinc-300 border border-[#262626]">{s}</span>
-                ))}
+             <div className="flex items-center justify-between pt-1">
+               <div className="flex flex-wrap gap-2">
+                 {inv.affectedCompanies.split(', ').map(s => (
+                   <span key={s} className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-accent text-muted-foreground border border-border">{s}</span>
+                 ))}
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-[10px] text-zinc-600">{inv.createdAt}</span>
-                <Link href="/blog" className="flex items-center gap-1 text-[10px] font-bold text-[#00E5A8] hover:gap-1.5 transition-all">
+                <Link href="/blog" className="flex items-center gap-1 text-[10px] font-bold text-success hover:gap-1.5 transition-all">
                   Read Full Report <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
@@ -78,3 +78,5 @@ export default function InvestigationsPage() {
     </div>
   );
 }
+
+

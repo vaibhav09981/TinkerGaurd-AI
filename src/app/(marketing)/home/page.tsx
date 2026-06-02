@@ -38,17 +38,17 @@ const BLOGS = [
 ];
 
 const severityStyles: Record<string, string> = {
-  critical: 'text-[#DC2626] bg-[#DC2626]/10 border border-[#DC2626]/25',
+  critical: 'text-destructive bg-destructive/10 border border-destructive/25',
   high: 'text-orange-400 bg-orange-400/10 border border-orange-400/25',
-  medium: 'text-[#FFC857] bg-[#FFC857]/10 border border-[#FFC857]/25',
-  low: 'text-[#00E5A8] bg-[#00E5A8]/10 border border-[#00E5A8]/25',
+  medium: 'text-warning bg-warning/10 border border-warning/25',
+  low: 'text-success bg-success/10 border border-success/25',
 };
 
 const riskDot: Record<string, string> = {
-  critical: 'bg-[#DC2626]',
+  critical: 'bg-destructive',
   high: 'bg-orange-400',
-  medium: 'bg-[#FFC857]',
-  low: 'bg-[#00E5A8]',
+  medium: 'bg-warning',
+  low: 'bg-success',
 };
 
 const fadeUp = {
@@ -78,7 +78,7 @@ export default function LandingPage() {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-muted rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-muted rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="mb-8 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-card/80 text-xs font-semibold text-muted-foreground shadow-lg">
+        <div className="mb-8 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-card/80 text-xs font-semibold text-muted-foreground shadow-lg glass">
           <span className={`inline-flex h-2 w-2 rounded-full animate-ping ${riskDot[active.severity]}`} />
           <span className={`capitalize font-bold ${severityStyles[active.severity].split(' ')[0]}`}>{active.severity}</span>
           <span className="text-muted-foreground">—</span>
@@ -118,7 +118,7 @@ export default function LandingPage() {
       <section className="px-4 sm:px-6 lg:px-8 py-20 max-w-7xl mx-auto w-full">
         <div className="mb-10 text-center">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-            <span className="h-2 w-2 rounded-full bg-[#FF5A5A] animate-ping" />Live Alert Feed
+            <span className="h-2 w-2 rounded-full bg-destructive animate-ping" />Live Alert Feed
           </span>
           <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-foreground tracking-tight">Recent Confusion Events</h2>
           <p className="mt-3 text-muted-foreground text-sm max-w-lg mx-auto">These are real historical cases where retail investors bought the wrong company due to brand name or ticker-symbol confusion.</p>
@@ -126,7 +126,7 @@ export default function LandingPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {LIVE_ALERTS.map((alert, i) => (
-            <motion.div key={alert.id} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="relative flex flex-col gap-4 p-5 rounded-2xl bg-card border border-border glass-panel-hover group">
+            <motion.div key={alert.id} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="relative flex flex-col gap-4 p-5 rounded-2xl bg-card/80 border border-border glass-panel-hover group">
               <div className={`absolute top-4 right-4 text-[10px] font-black px-2 py-0.5 rounded-full ${severityStyles[alert.severity]}`}>{alert.severity}</div>
               <div className="flex items-start gap-3">
                 <div className={`p-2 rounded-xl ${severityStyles[alert.severity].split(' ').slice(1).join(' ')}`}>
@@ -139,7 +139,7 @@ export default function LandingPage() {
               </div>
               <div className="space-y-1.5 text-xs text-muted-foreground">
                 <p><span className="text-muted-foreground/70 font-semibold">Trigger: </span>{alert.trigger}</p>
-                <p><span className="text-muted-foreground/70 font-semibold">Market Impact: </span><span className="text-[#FFC857] font-semibold">{alert.change}</span></p>
+                <p><span className="text-muted-foreground/70 font-semibold">Market Impact: </span><span className="text-warning font-semibold">{alert.change}</span></p>
               </div>
               <Link href="/dashboard" className="text-[11px] font-bold text-foreground flex items-center gap-1 hover:gap-2 transition-all mt-auto">Investigate <ArrowRight className="w-3.5 h-3.5" /></Link>
             </motion.div>
@@ -159,7 +159,7 @@ export default function LandingPage() {
           {FEATURES.map((f, i) => {
             const Icon = f.icon;
             return (
-              <motion.div key={f.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border glass-panel-hover">
+              <motion.div key={f.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-4 p-6 rounded-2xl bg-card/80 border border-border glass-panel-hover">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-muted border border-border"><Icon className={`w-5 h-5 ${f.color}`} /></div>
                 <div>
                   <h3 className="text-sm font-bold text-foreground">{f.title}</h3>
@@ -178,7 +178,7 @@ export default function LandingPage() {
           {STATS.map((s, i) => {
             const Icon = s.icon;
             return (
-              <motion.div key={s.label} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-card border border-border">
+              <motion.div key={s.label} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col items-center text-center gap-3 p-6 rounded-2xl bg-card/80 border border-border glass">
                 <Icon className="w-6 h-6 text-muted-foreground" />
                 <p className="text-3xl font-black text-foreground tracking-tight">{s.value}</p>
                 <p className="text-xs text-muted-foreground font-semibold">{s.label}</p>
@@ -201,7 +201,7 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {BLOGS.map((b, i) => (
             <motion.div key={b.slug} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <Link href={`/blog/${b.slug}`} className="group flex flex-col gap-4 p-5 h-full rounded-2xl bg-card border border-border glass-panel-hover">
+              <Link href={`/blog/${b.slug}`} className="group flex flex-col gap-4 p-5 h-full rounded-2xl bg-card/80 border border-border glass-panel-hover">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">{b.category}</span>
                   <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${severityStyles[b.risk]}`}>{b.risk}</span>
@@ -219,7 +219,7 @@ export default function LandingPage() {
 
       {/* ── CTA BANNER ───────────────────────────────────────────────────── */}
       <section className="px-4 sm:px-6 lg:px-8 py-24 max-w-7xl mx-auto w-full">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative flex flex-col items-center text-center gap-6 p-12 rounded-3xl bg-card border border-border overflow-hidden">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative flex flex-col items-center text-center gap-6 p-12 rounded-3xl bg-card/80 border border-border glass-panel overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none"><div className="w-[500px] h-[200px] bg-muted rounded-full blur-[80px]" /></div>
           <div className="relative">
             <div className="w-12 h-12 mx-auto mb-4 rounded-2xl bg-muted border border-border flex items-center justify-center"><Shield className="w-6 h-6 text-foreground" /></div>
@@ -237,3 +237,5 @@ export default function LandingPage() {
     </div>
   );
 }
+
+

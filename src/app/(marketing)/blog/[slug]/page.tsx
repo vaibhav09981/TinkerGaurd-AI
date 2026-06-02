@@ -36,12 +36,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <div className="relative flex flex-col">
       {/* ── Hero Banner ─────────────────────────────────────────── */}
-      <div className="relative h-64 sm:h-80 md:h-96 bg-[#111111] border-b border-[#1A1A1A] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/50 via-[#0A0A0A]/30 to-[#0A0A0A]" />
+      <div className="relative h-64 sm:h-80 md:h-96 bg-card border-b border-border overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/30 to-background" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative">
-            <div className="absolute inset-0 bg-[#FFC857]/10 rounded-3xl blur-3xl" />
-            <Shield className="w-16 h-16 text-[#FFC857]/30 relative" />
+            <div className="absolute inset-0 bg-warning/10 rounded-3xl blur-3xl" />
+            <Shield className="w-16 h-16 text-warning/30 relative" />
           </div>
         </div>
       </div>
@@ -51,14 +51,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Back */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-[#FFC857] transition mb-8"
+            className="inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-warning transition mb-8"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back to Research Hub
           </Link>
 
           {/* Header Card */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-[#111111] border border-[#1A1A1A] mb-8">
+          <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border mb-8">
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">{post.category}</span>
@@ -83,8 +83,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <p className="text-sm text-zinc-400 leading-relaxed">{post.summary}</p>
 
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0A0A0A] border border-[#1A1A1A]">
-                  <BookOpen className="w-3.5 h-3.5 text-[#FFC857]" />
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-background border border-border">
+                  <BookOpen className="w-3.5 h-3.5 text-warning" />
                   <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">
                     {post.riskRating} Risk
                   </span>
@@ -119,7 +119,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   return (
                     <blockquote
                       key={i}
-                      className="border-l-2 border-[#FFC857]/40 pl-4 py-2 text-zinc-400 italic text-sm"
+                      className="border-l-2 border-warning/40 pl-4 py-2 text-zinc-400 italic text-sm"
                     >
                       {para.slice(2)}
                     </blockquote>
@@ -128,7 +128,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 if (para.startsWith('```')) return null;
                 if (para.startsWith('* '))
                   return (
-                    <li key={i} className="ml-4 text-sm text-zinc-400 marker:text-[#FFC857]">
+                    <li key={i} className="ml-4 text-sm text-zinc-400 marker:text-warning">
                       {para.slice(2)}
                     </li>
                   );
@@ -143,16 +143,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Related Companies */}
             {post.relatedSymbols && post.relatedSymbols.length > 0 && (
-              <div className="p-5 rounded-2xl bg-[#111111] border border-[#1A1A1A]">
+              <div className="p-5 rounded-2xl bg-card border border-border">
                 <div className="flex items-center gap-2 mb-3">
-                  <Shield className="w-4 h-4 text-[#FFC857]" />
+                  <Shield className="w-4 h-4 text-warning" />
                   <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Related Companies</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {post.relatedSymbols.map((s) => (
                     <span
                       key={s}
-                      className="text-[11px] font-mono font-bold px-3 py-1.5 rounded-lg bg-[#0A0A0A] text-zinc-300 border border-[#262626]"
+                      className="text-[11px] font-mono font-bold px-3 py-1.5 rounded-lg bg-background text-zinc-300 border border-border"
                     >
                       {s}
                     </span>
@@ -173,10 +173,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <Link
                       key={rp.slug}
                       href={`/blog/${rp.slug}`}
-                      className="group flex flex-col gap-3 p-5 rounded-2xl bg-[#111111] border border-[#1A1A1A] hover:border-[#FFC857]/25 transition-all"
+                      className="group flex flex-col gap-3 p-5 rounded-2xl bg-card border border-border hover:border-warning/25 transition-all"
                     >
                       <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-wider">{rp.category}</span>
-                      <h4 className="text-sm font-bold text-white group-hover:text-[#FFC857] transition-colors leading-snug">
+                      <h4 className="text-sm font-bold text-white group-hover:text-warning transition-colors leading-snug">
                         {rp.title}
                       </h4>
                       <div className="flex items-center gap-3 text-[10px] text-zinc-600 font-medium">
@@ -193,10 +193,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
 
             {/* Back CTA */}
-            <div className="pt-8 border-t border-[#1A1A1A]">
+            <div className="pt-8 border-t border-border">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 text-xs font-bold text-[#FFC857] hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-xs font-bold text-warning hover:gap-3 transition-all"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 Back to all articles
@@ -208,3 +208,5 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     </div>
   );
 }
+
+

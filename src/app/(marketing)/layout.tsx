@@ -23,16 +23,16 @@ export default function MarketingLayout({
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-muted rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-muted rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="w-full bg-muted border-b border-border py-2 px-4 text-center text-xs text-muted-foreground font-medium flex items-center justify-center gap-2 z-50">
-        <span className="inline-flex h-2 w-2 rounded-full bg-muted-foreground/40 animate-pulse" />
+      <div className="w-full bg-destructive/15 border-b border-destructive/30 py-2 px-4 text-center text-xs text-destructive font-medium flex items-center justify-center gap-2 z-50 glass">
+        <span className="inline-flex h-2 w-2 rounded-full bg-destructive animate-pulse" />
         <span><strong>Live Market Alert:</strong> Brand displacement detected on BSE listed <strong>PARLEIND</strong>. Biscuit rumors driving +1,200% volume spikes.</span>
-        <Link href="/dashboard" className="underline hover:text-foreground transition ml-1 flex items-center gap-0.5">
+        <Link href="/dashboard" className="underline hover:text-foreground transition ml-1 flex items-center gap-0.5 font-bold">
           Intercept Trade <ArrowRight className="w-3 h-3" />
         </Link>
       </div>
 
       {/* Header Navigation */}
-      <header className="sticky top-0 z-40 w-full border-b border-border bg-background/85 backdrop-blur-md">
+      <header className="sticky top-0 z-40 w-full border-b border-border glass bg-background/85 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-2 group">
@@ -121,3 +121,6 @@ export default function MarketingLayout({
     </div>
   );
 }
+
+
+

@@ -37,8 +37,8 @@ const NEWS = [
   },
 ];
 
-const sentimentLabel = (s: number) => s > 0.5 ? { label: 'Positive', color: 'text-[#00E5A8]' } : s < 0 ? { label: 'Negative', color: 'text-[#FF5A5A]' } : { label: 'Neutral', color: 'text-[#FFC857]' };
-const riskColor = (r: number) => r >= 80 ? 'text-destructive bg-destructive/10 border-destructive/20' : r >= 60 ? 'text-orange-400 bg-orange-400/10 border-orange-400/20' : r >= 40 ? 'text-[#FFC857] bg-[#FFC857]/10 border-[#FFC857]/20' : 'text-[#00E5A8] bg-[#00E5A8]/10 border-[#00E5A8]/20';
+const sentimentLabel = (s: number) => s > 0.5 ? { label: 'Positive', color: 'text-success' } : s < 0 ? { label: 'Negative', color: 'text-destructive' } : { label: 'Neutral', color: 'text-warning' };
+const riskColor = (r: number) => r >= 80 ? 'text-destructive bg-destructive/10 border-destructive/20' : r >= 60 ? 'text-orange-400 bg-orange-400/10 border-orange-400/20' : r >= 40 ? 'text-warning bg-warning/10 border-warning/20' : 'text-success bg-success/10 border-success/20';
 const riskLabel = (r: number) => r >= 80 ? 'Critical' : r >= 60 ? 'High' : r >= 40 ? 'Medium' : 'Low';
 
 type FilterType = 'all' | 'confusion' | 'misinformation' | 'high-risk';
@@ -81,12 +81,12 @@ export default function NewsPage() {
         {filtered.map((article, i) => {
           const sent = sentimentLabel(article.sentiment);
           return (
-            <motion.article key={article.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06, duration: 0.4 }} className="flex flex-col gap-4 p-5 rounded-2xl bg-card border border-border hover:border-muted-foreground/20 group transition">
+            <motion.article key={article.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06, duration: 0.4 }} className="flex flex-col gap-4 p-5 rounded-2xl bg-card/80 border border-border glass-panel-hover group transition">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     {article.isConfusionEvent && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-destructive/10 text-destructive border border-destructive/20 uppercase tracking-wider">Confusion Event</span>}
-                    {article.isViral && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FFC857]/10 text-[#FFC857] border border-[#FFC857]/20 uppercase tracking-wider">Viral</span>}
+                    {article.isViral && <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-warning/10 text-warning border border-warning/20 uppercase tracking-wider">Viral</span>}
                   </div>
                   <h3 className="text-sm font-bold text-foreground leading-snug group-hover:text-foreground/80 transition-colors">{article.title}</h3>
                   <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed line-clamp-2">{article.content}</p>
@@ -114,3 +114,6 @@ export default function NewsPage() {
     </div>
   );
 }
+
+
+

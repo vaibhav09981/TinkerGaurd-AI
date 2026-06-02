@@ -63,19 +63,15 @@ export default function PricingPage() {
       <section className="px-4 sm:px-6 lg:px-8 py-16 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {TIERS.map((tier, i) => (
-            <div
-              key={tier.name}
-              className={`relative flex flex-col gap-5 p-6 rounded-2xl border ${
-                tier.highlighted
-                  ? 'bg-card border-border shadow-lg'
-                  : 'bg-card border-border'
-              }`}
-            >
-              {tier.highlighted && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-wider">
-                  Most Popular
-                </span>
-              )}
+              <div
+                key={tier.name}
+                className="relative flex flex-col gap-5 p-6 rounded-2xl border bg-card/80 border-border glass-panel-hover"
+              >
+                {tier.highlighted && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-wider">
+                    Most Popular
+                  </span>
+                )}
               <div>
                 <h3 className="text-lg font-bold text-foreground">{tier.name}</h3>
                 <div className="mt-2 flex items-baseline gap-1">

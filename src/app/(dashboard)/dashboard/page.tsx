@@ -52,20 +52,20 @@ const TOP_COMPANIES = [
 const sevColor: Record<string, string> = {
   critical: 'text-destructive',
   high: 'text-orange-400',
-  medium: 'text-[#FFC857]',
-  low: 'text-[#00E5A8]',
+  medium: 'text-warning',
+  low: 'text-success',
 };
 const sevBg: Record<string, string> = {
   critical: 'bg-destructive/10 border-destructive/20',
   high: 'bg-orange-400/10 border-orange-400/20',
-  medium: 'bg-[#FFC857]/10 border-[#FFC857]/20',
-  low: 'bg-[#00E5A8]/10 border-[#00E5A8]/20',
+  medium: 'bg-warning/10 border-warning/20',
+  low: 'bg-success/10 border-success/20',
 };
 const sevDot: Record<string, string> = {
   critical: 'bg-destructive',
   high: 'bg-orange-400',
-  medium: 'bg-[#FFC857]',
-  low: 'bg-[#00E5A8]',
+  medium: 'bg-warning',
+  low: 'bg-success',
 };
 
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -95,8 +95,8 @@ export default function DashboardPage() {
 
   const statCards = [
     { label: 'Active Alerts', value: '3', sub: '2 critical', icon: AlertTriangle, color: 'text-destructive' },
-    { label: 'Confusion Score', value: '92', sub: 'PARLEIND today', icon: Brain, color: 'text-[#FFC857]' },
-    { label: 'Companies Monitored', value: '18,400', sub: '+12 added today', icon: Eye, color: 'text-[#00E5A8]' },
+    { label: 'Confusion Score', value: '92', sub: 'PARLEIND today', icon: Brain, color: 'text-warning' },
+    { label: 'Companies Monitored', value: '18,400', sub: '+12 added today', icon: Eye, color: 'text-success' },
     { label: 'Detection Rate', value: '94.7%', sub: '↑ 1.2% this week', icon: CheckCircle, color: 'text-muted-foreground' },
   ];
 
@@ -141,7 +141,7 @@ export default function DashboardPage() {
 
       {/* ── Main Chart Area ───────────────────────────────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }} className="lg:col-span-2 flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }} className="lg:col-span-2 flex flex-col gap-4 p-6 rounded-2xl bg-card/80 border border-border glass">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-sm font-bold text-foreground">Market Movement vs. Social Hype</h2>
@@ -199,7 +199,7 @@ export default function DashboardPage() {
                   <XAxis dataKey="day" stroke="currentColor" className="text-muted-foreground" tick={{ fontSize: 10, fill: 'currentColor' }} />
                   <YAxis stroke="currentColor" className="text-muted-foreground" tick={{ fontSize: 10, fill: 'currentColor' }} domain={[0, 100]} />
                   <Tooltip content={<CustomTooltip />} />
-                  <Bar dataKey="score" name="Confusion Score" fill="#00E5A8" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="score" name="Confusion Score" fill="currentColor" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             )}
@@ -212,13 +212,13 @@ export default function DashboardPage() {
                 <span className="flex items-center gap-1.5"><span className="h-2 w-4 rounded bg-muted border border-dashed border-muted-foreground" /> Social Mention Volume</span>
               </>
             ) : (
-              <span className="flex items-center gap-1.5"><span className="h-2 w-4 rounded bg-[#00E5A8]" /> Confusion Score (0–100)</span>
+              <span className="flex items-center gap-1.5"><span className="h-2 w-4 rounded bg-success" /> Confusion Score (0–100)</span>
             )}
           </div>
         </motion.div>
 
         {/* Confusion score sidebar */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }} className="flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }} className="flex flex-col gap-4 p-6 rounded-2xl bg-card/80 border border-border glass">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold text-foreground">Top Risk Stocks</h2>
             <Link href="/companies" className="text-[10px] font-bold text-muted-foreground hover:text-foreground flex items-center gap-1 hover:gap-1.5 transition-all">All <ChevronRight className="w-3 h-3" /></Link>
@@ -250,7 +250,7 @@ export default function DashboardPage() {
 
       {/* ── Bottom Row ────────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5 }} className="flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5 }} className="flex flex-col gap-4 p-6 rounded-2xl bg-card/80 border border-border glass">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold text-foreground">Recent Alerts</h2>
             <Link href="/alerts" className="text-[10px] font-bold text-muted-foreground hover:text-foreground flex items-center gap-1 hover:gap-1.5 transition-all">Alert Center <ArrowRight className="w-3 h-3" /></Link>
@@ -269,7 +269,7 @@ export default function DashboardPage() {
           </div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }} className="flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }} className="flex flex-col gap-4 p-6 rounded-2xl bg-card/80 border border-border glass">
           <h2 className="text-sm font-bold text-foreground">Quick Actions</h2>
           <div className="grid grid-cols-4 gap-3">
             {[
@@ -278,7 +278,7 @@ export default function DashboardPage() {
               { icon: Brain, label: 'AI Chat', href: '/assistant' },
               { icon: Shield, label: 'Investigations', href: '/investigations' },
             ].map(({ icon: Icon, label, href }) => (
-              <Link key={label} href={href} className="flex flex-col gap-3 p-4 rounded-xl bg-muted border border-border hover:brightness-110 group transition">
+              <Link key={label} href={href} className="flex flex-col gap-3 p-4 rounded-xl bg-muted/80 border border-border glass-panel-hover group transition">
                 <Icon className="w-5 h-5 text-muted-foreground" />
                 <p className="text-xs font-semibold text-foreground leading-snug group-hover:text-foreground/80 transition-colors">{label}</p>
                 <ChevronRight className="w-3.5 h-3.5 text-muted-foreground self-end mt-auto" />
@@ -294,3 +294,6 @@ export default function DashboardPage() {
 function FileSearch({ className }: { className?: string }) {
   return <Activity className={className} />;
 }
+
+
+

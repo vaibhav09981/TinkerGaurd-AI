@@ -73,11 +73,11 @@ export default function AssistantPage() {
   return (
     <div className="flex flex-col gap-4 max-w-4xl h-[calc(100vh-8rem)]">
       <div>
-        <h1 className="text-2xl font-bold text-white tracking-tight">AI Chat Assistant</h1>
-        <p className="mt-1 text-sm text-zinc-500">Ask anything about market confusion, companies, or ticker symbols.</p>
+        <h1 className="text-2xl font-bold text-foreground tracking-tight">AI Chat Assistant</h1>
+        <p className="mt-1 text-sm text-muted-foreground">Ask anything about market confusion, companies, or ticker symbols.</p>
       </div>
 
-      <div className="flex-1 flex flex-col rounded-2xl bg-[#111111] border border-[#1A1A1A] overflow-hidden">
+      <div className="flex-1 flex flex-col rounded-2xl glass-card overflow-hidden">
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {messages.map((msg) => (
             <motion.div
@@ -87,21 +87,21 @@ export default function AssistantPage() {
               className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div className={`flex gap-3 max-w-[80%] ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border ${
                   msg.role === 'user'
-                    ? 'bg-[#262626]'
-                    : 'bg-[#00E5A8]/10 border border-[#00E5A8]/20'
+                    ? 'bg-muted border-border'
+                    : 'bg-primary/10 border-primary/25'
                 }`}>
-                  {msg.role === 'user' ? <User className="w-4 h-4 text-zinc-400" /> : <Sparkles className="w-4 h-4 text-[#00E5A8]" />}
+                  {msg.role === 'user' ? <User className="w-4 h-4 text-muted-foreground" /> : <Sparkles className="w-4 h-4 text-primary" />}
                 </div>
                 <div className={`p-3 rounded-2xl text-xs leading-relaxed ${
                   msg.role === 'user'
-                    ? 'bg-[#262626] text-zinc-200 rounded-tr-sm'
-                    : 'bg-[#0A0A0A] text-zinc-300 border border-[#1A1A1A] rounded-tl-sm'
+                    ? 'bg-muted text-foreground rounded-tr-sm'
+                    : 'glass-panel text-foreground rounded-tl-sm'
                 }`}>
                   {msg.content.split('\n').map((line, i) => {
-                    if (line.startsWith('### ')) return <h3 key={i} className="text-sm font-bold text-white mt-2 first:mt-0">{line.slice(4)}</h3>;
-                    if (line.startsWith('**') && line.endsWith('**')) return <p key={i} className="font-bold text-white mt-1">{line.slice(2, -2)}</p>;
+                    if (line.startsWith('### ')) return <h3 key={i} className="text-sm font-bold text-foreground mt-2 first:mt-0">{line.slice(4)}</h3>;
+                    if (line.startsWith('**') && line.endsWith('**')) return <p key={i} className="font-bold text-foreground mt-1">{line.slice(2, -2)}</p>;
                     if (line.startsWith('* ')) return <li key={i} className="ml-3 mt-1">{line.slice(2)}</li>;
                     if (line.trim() === '') return <br key={i} />;
                     return <p key={i} className="mt-1">{line}</p>;
@@ -112,30 +112,30 @@ export default function AssistantPage() {
           ))}
           {loading && (
             <div className="flex gap-3 justify-start">
-              <div className="w-8 h-8 rounded-lg bg-[#00E5A8]/10 border border-[#00E5A8]/20 flex items-center justify-center shrink-0">
-                <Sparkles className="w-4 h-4 text-[#00E5A8]" />
+              <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/25 flex items-center justify-center shrink-0">
+                <Sparkles className="w-4 h-4 text-primary" />
               </div>
-              <div className="p-3 rounded-2xl rounded-tl-sm bg-[#0A0A0A] border border-[#1A1A1A]">
-                <RefreshCw className="w-4 h-4 text-[#00E5A8] animate-spin" />
+              <div className="p-3 rounded-2xl rounded-tl-sm glass-panel">
+                <RefreshCw className="w-4 h-4 text-primary animate-spin" />
               </div>
             </div>
           )}
           <div ref={messagesEndRef} />
         </div>
 
-        <form onSubmit={sendMessage} className="p-4 border-t border-[#1A1A1A]">
+        <form onSubmit={sendMessage} className="p-4 border-t border-border">
           <div className="flex gap-3">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about ticker confusion, companies, markets..."
-              className="flex-1 bg-[#0A0A0A] border border-[#1A1A1A] rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#00E5A8]/30 transition"
+              className="flex-1 bg-background border border-input rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-ring transition input-glass"
               disabled={loading}
             />
             <button
               type="submit"
               disabled={!input.trim() || loading}
-              className="px-4 py-2.5 rounded-xl bg-[#00E5A8] text-black text-sm font-bold disabled:opacity-40 hover:bg-[#00E5A8]/90 transition"
+              className="px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-bold disabled:opacity-40 hover:bg-primary/90 transition"
             >
               <Send className="w-4 h-4" />
             </button>

@@ -33,39 +33,39 @@ export function calculateConfusionScore(inputs: ScoringInputs): ScoreReport {
   );
 
   let level: 'safe' | 'monitor' | 'high' | 'critical' = 'safe';
-  let color = '#00E5A8'; // Accent Green
-  let bgClass = 'bg-[#00E5A8]/10';
-  let borderClass = 'border-[#00E5A8]/20';
-  let textClass = 'text-[#00E5A8]';
+  let color = 'var(--color-success)'; // Accent Green
+  let bgClass = 'bg-success/10';
+  let borderClass = 'border-success/20';
+  let textClass = 'text-success';
   let verdict = 'No significant corporate identity or ticker confusion detected.';
 
   if (score <= 40) {
     level = 'safe';
-    color = '#00E5A8';
-    bgClass = 'bg-[#00E5A8]/10';
-    borderClass = 'border-[#00E5A8]/20';
-    textClass = 'text-[#00E5A8]';
+    color = 'var(--color-success)';
+    bgClass = 'bg-success/10';
+    borderClass = 'border-success/20';
+    textClass = 'text-success';
     verdict = 'Safe. Normal trading activity matching core company developments.';
   } else if (score <= 70) {
     level = 'monitor';
-    color = '#FFC857';
-    bgClass = 'bg-[#FFC857]/10';
-    borderClass = 'border-[#FFC857]/20';
-    textClass = 'text-[#FFC857]';
+    color = 'var(--color-warning)';
+    bgClass = 'bg-warning/10';
+    borderClass = 'border-warning/20';
+    textClass = 'text-warning';
     verdict = 'Monitor closely. Elevated keywords or similar brands are circulating on social feeds.';
   } else if (score <= 85) {
     level = 'high';
-    color = '#FF8A5A';
+    color = 'var(--color-destructive)';
     bgClass = 'bg-orange-500/10';
     borderClass = 'border-orange-500/20';
     textClass = 'text-orange-400';
     verdict = 'High Risk! Active trading volumes are moving on unrelated tickers due to brand similarity.';
   } else {
     level = 'critical';
-    color = '#FF5A5A';
-    bgClass = 'bg-[#FF5A5A]/10';
-    borderClass = 'border-[#FF5A5A]/20';
-    textClass = 'text-[#FF5A5A]';
+    color = 'var(--color-destructive)';
+    bgClass = 'bg-destructive/10';
+    borderClass = 'border-destructive/20';
+    textClass = 'text-destructive';
     verdict = 'Critical Warning! Unjustified market pump or identity collapse actively occurring. Avoid trading!';
   }
 
@@ -132,13 +132,16 @@ export function calculateNameSimilarity(a: string, b: string): number {
 export function getSeverityBadgeStyles(severity: string) {
   switch (severity.toLowerCase()) {
     case 'critical':
-      return 'bg-red-950/40 text-[#FF5A5A] border border-[#FF5A5A]/30';
+      return 'bg-red-950/40 text-destructive border border-destructive/30';
     case 'high':
       return 'bg-orange-950/40 text-orange-400 border border-orange-500/30';
     case 'medium':
     case 'monitor':
-      return 'bg-yellow-950/40 text-[#FFC857] border border-[#FFC857]/30';
+      return 'bg-yellow-950/40 text-warning border border-warning/30';
     default:
-      return 'bg-emerald-950/40 text-[#00E5A8] border border-[#00E5A8]/30';
+      return 'bg-emerald-950/40 text-success border border-success/30';
   }
 }
+
+
+

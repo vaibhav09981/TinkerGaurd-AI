@@ -75,7 +75,7 @@ export default function DashboardLayout({
 
   return (
     <div className="flex h-screen bg-background overflow-hidden text-foreground font-sans">
-      <aside className={`fixed inset-y-0 left-0 z-30 flex flex-col bg-card border-r border-border transition-all duration-300 ${sidebarOpen ? 'w-64 translate-x-0' : 'w-0 -translate-x-full lg:w-20 lg:translate-x-0'}`}>
+      <aside className={`fixed inset-y-0 left-0 z-30 flex flex-col bg-card/80 border-r border-border glass transition-all duration-300 ${sidebarOpen ? 'w-64 translate-x-0' : 'w-0 -translate-x-full lg:w-20 lg:translate-x-0'}`}>
         <div className="h-16 flex items-center justify-between px-4 border-b border-border overflow-hidden">
           <Link href="/" className="flex items-center gap-2 select-none shrink-0">
             <div className="p-1 rounded-lg bg-muted border border-border">
@@ -134,7 +134,7 @@ export default function DashboardLayout({
       </aside>
 
       <div className={`flex-1 flex flex-col overflow-hidden transition-all duration-300 ${sidebarOpen ? 'lg:pl-64' : 'lg:pl-20'}`}>
-        <header className="h-16 border-b border-border bg-background/85 backdrop-blur-md z-20 flex items-center justify-between px-4 lg:px-8">
+        <header className="h-16 border-b border-border glass bg-background/85 backdrop-blur-md z-20 flex items-center justify-between px-4 lg:px-8">
           <div className="flex items-center gap-4">
             <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted transition">
               <Menu className="w-5 h-5" />
@@ -173,7 +173,7 @@ export default function DashboardLayout({
                       {notifications.map((notif) => (
                         <div key={notif.id} className="text-xs group border-b border-border pb-2 last:border-0 last:pb-0">
                           <div className="flex items-center justify-between font-bold">
-                            <span className={`inline-flex items-center gap-1.5 ${notif.type === 'critical' ? 'text-destructive' : notif.type === 'high' ? 'text-orange-400' : 'text-[#FFC857]'}`}>
+                            <span className={`inline-flex items-center gap-1.5 ${notif.type === 'critical' ? 'text-destructive' : notif.type === 'high' ? 'text-orange-400' : 'text-warning'}`}>
                               <span className="h-1.5 w-1.5 rounded-full bg-current" />{notif.title}
                             </span>
                             <span className="text-[9px] text-muted-foreground font-medium">{notif.time}</span>
@@ -207,3 +207,4 @@ export default function DashboardLayout({
     </div>
   );
 }
+

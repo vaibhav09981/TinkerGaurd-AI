@@ -24,8 +24,8 @@ interface BlogClientProps {
 const severityStyles: Record<string, string> = {
   critical: 'text-destructive bg-destructive/10 border-destructive/20',
   high: 'text-orange-400 bg-orange-400/10 border-orange-400/20',
-  medium: 'text-[#FFC857] bg-[#FFC857]/10 border-[#FFC857]/20',
-  low: 'text-[#00E5A8] bg-[#00E5A8]/10 border-[#00E5A8]/20',
+  medium: 'text-warning bg-warning/10 border-warning/20',
+  low: 'text-success bg-success/10 border-success/20',
 };
 
 const FILTER_ORDER = ['Market Confusion Cases', 'Misinformation Analysis', 'Stock Analysis', 'Investor Education', 'Corporate Profiles', 'Market Psychology'];
@@ -115,3 +115,4 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
     </div>
   );
 }
+

@@ -39,13 +39,13 @@ export default function FeaturesPage() {
             const Icon = f.icon;
             return (
               <motion.div key={f.title} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
-                <Link href={f.href} className={`flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border hover:bg-muted transition-all group`}>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-muted border border-border"><Icon className={`w-5 h-5 ${f.color}`} /></div>
+                <Link href={f.href} className={`flex flex-col gap-4 p-6 rounded-2xl bg-card/80 border border-border glass-panel-hover text-center`}>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-muted border border-border mx-auto"><Icon className={`w-5 h-5 ${f.color}`} /></div>
                   <div>
                     <h3 className="text-sm font-bold text-foreground group-hover:text-foreground/80 transition-colors">{f.title}</h3>
                     <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{f.desc}</p>
                   </div>
-                  <span className={`text-[11px] font-bold mt-auto flex items-center gap-1 group-hover:gap-2 transition-all`}>Explore <ArrowRight className="w-3.5 h-3.5" /></span>
+                  <span className={`text-[11px] font-bold mt-auto inline-flex items-center gap-1 group-hover:gap-2 transition-all`}>Explore <ArrowRight className="w-3.5 h-3.5" /></span>
                 </Link>
               </motion.div>
             );

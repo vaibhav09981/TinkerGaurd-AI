@@ -52,13 +52,8 @@ export default function AboutPage() {
           {VALUES.map((v, i) => {
             const Icon = v.icon;
             return (
-              <div
-                key={v.title}
-                className="flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border hover:border-muted-foreground/20 transition"
-              >
-                <div className="w-10 h-10 rounded-xl bg-muted border border-border flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-muted-foreground" />
-                </div>
+              <div key={v.title} className="flex flex-col gap-4 p-6 rounded-2xl bg-card/80 border border-border glass-panel-hover text-center items-center">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-muted border border-border"><Icon className="w-5 h-5 text-muted-foreground" /></div>
                 <h3 className="text-sm font-bold text-foreground">{v.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{v.desc}</p>
               </div>
@@ -71,7 +66,7 @@ export default function AboutPage() {
       <section className="px-4 sm:px-6 lg:px-8 py-16 max-w-7xl mx-auto w-full">
         <div className="max-w-3xl mx-auto">
           <div className="w-full h-px bg-border my-6" />
-          <div className="p-8 rounded-2xl bg-card border border-border text-center">
+          <div className="p-8 rounded-2xl bg-card/80 border border-border glass-panel-hover text-center">
             <h2 className="text-xl font-bold text-foreground mb-3">Ready to Protect Your Trades?</h2>
             <p className="text-xs text-muted-foreground max-w-lg mx-auto mb-6">
               Join thousands of investors who use TickerGuard AI to validate every trade before confusion costs them money.
