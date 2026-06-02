@@ -5,7 +5,7 @@ import { ArrowLeft, Clock, Eye, Shield, Calendar, BookOpen } from 'lucide-react'
 import { getBlogPosts } from '@/app/actions';
 
 interface BlogPostPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -14,8 +14,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
   const posts = await getBlogPosts();
-  const post = posts.find((p) => p.slug === params.slug);
+  const post = posts.find((p) => p.slug === slug);
   if (!post) return { title: 'Article Not Found — TickerGuard AI' };
   return {
     title: `${post.title} — TickerGuard AI Research`,
@@ -24,12 +25,13 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
   const posts = await getBlogPosts();
-  const post = posts.find((p) => p.slug === params.slug);
+  const post = posts.find((p) => p.slug === slug);
 
   if (!post) return notFound();
 
-  const relatedPosts = posts.filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 2);
+  const relatedPosts = posts.filter((p) => p.slug !== slug && p.category === post.category).slice(0, 2);
 
   return (
     <div className="relative flex flex-col">
