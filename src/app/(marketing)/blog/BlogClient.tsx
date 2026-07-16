@@ -115,4 +115,3 @@ export default function BlogClient({ posts, categories }: BlogClientProps) {
     </div>
   );
 }
-

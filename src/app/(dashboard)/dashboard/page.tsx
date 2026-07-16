@@ -102,7 +102,7 @@ export default function DashboardPage() {
 
   return (
     <div className="flex flex-col gap-8 max-w-[1600px] mx-auto w-full">
-      {/* ── Page Header ───────────────────────────────────────────────── */}
+      {}
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground tracking-tight">Market Intelligence Dashboard</h1>
@@ -120,7 +120,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* ── Stat Cards ────────────────────────────────────────────────── */}
+      {}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {statCards.map((card, i) => {
           const Icon = card.icon;
@@ -294,6 +294,3 @@ export default function DashboardPage() {
 function FileSearch({ className }: { className?: string }) {
   return <Activity className={className} />;
 }
-
-
-

@@ -1,7 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-// Core Schema Types
 export interface User {
   id: string;
   email: string;
@@ -39,8 +38,8 @@ export interface NewsArticle {
   title: string;
   source: string;
   url?: string;
-  sentiment: number; // -1 to +1
-  riskScore: number; // 0 to 100
+  sentiment: number; 
+  riskScore: number; 
   content: string;
   publishedAt: string;
   symbols: string[];
@@ -64,9 +63,9 @@ export interface SocialMention {
   platform: 'reddit' | 'twitter' | 'youtube' | 'forum';
   symbol: string;
   mentionsCount: number;
-  growthRate: number; // e.g. +145%
-  sentiment: number; // -1 to +1
-  suspiciousScore: number; // 0-100
+  growthRate: number; 
+  sentiment: number; 
+  suspiciousScore: number; 
   timestamp: string;
 }
 
@@ -75,7 +74,7 @@ export interface BlogPost {
   title: string;
   slug: string;
   summary: string;
-  content: string; // Markdown content
+  content: string; 
   coverImage: string;
   readingTime: number;
   publishDate: string;
@@ -93,7 +92,7 @@ export interface Investigation {
   rootCause: string;
   marketImpact: string;
   investorWarning: string;
-  affectedCompanies: string; // Comma separated symbols
+  affectedCompanies: string; 
   createdAt: string;
 }
 
@@ -116,10 +115,8 @@ export interface DatabaseSchema {
   chatHistory: ChatMessage[];
 }
 
-// Database JSON file path in workspace root
 const DB_FILE_PATH = path.join(process.cwd(), 'db.json');
 
-// High-Fidelity Initial Seed Data
 const DEFAULT_SEED_DATA: DatabaseSchema = {
   users: [
     {

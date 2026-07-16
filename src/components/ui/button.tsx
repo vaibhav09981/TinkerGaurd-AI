@@ -15,4 +15,3 @@ function Button({ className, ...props }: React.ButtonHTMLAttributes<HTMLButtonEl
 }
 
 export { Button };
-

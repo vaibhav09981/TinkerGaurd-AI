@@ -73,7 +73,7 @@ export default function LandingPage() {
   return (
     <div className="relative flex flex-col">
 
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
+      {}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24 pb-32 overflow-hidden bg-grid-pattern">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-muted rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-muted rounded-full blur-[120px] pointer-events-none" />
@@ -237,5 +237,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
-

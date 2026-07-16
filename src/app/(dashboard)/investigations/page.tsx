@@ -28,7 +28,7 @@ export default function InvestigationsPage() {
         {INVESTIGATIONS.map((inv, i) => (
           <motion.div key={inv.id} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}
             className="flex flex-col gap-4 p-6 rounded-2xl bg-card/80 border border-border glass-panel-hover group transition">
-            
+
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -78,5 +78,3 @@ export default function InvestigationsPage() {
     </div>
   );
 }
-
-

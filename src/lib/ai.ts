@@ -1,7 +1,6 @@
 import { JSONDatabase } from './db';
 import { calculateNameSimilarity, calculateConfusionScore } from './scoring';
 
-// Interfaces for AI outputs
 export interface AIInvestigationResult {
   title: string;
   summary: string;
@@ -20,9 +19,6 @@ export interface AIChatResponse {
   detectedAlerts?: { title: string; severity: 'low' | 'medium' | 'high' | 'critical' }[];
 }
 
-/**
- * Direct fetch-based client for OpenAI to keep dependencies minimal
- */
 async function callOpenAI(systemPrompt: string, userPrompt: string): Promise<string> {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey || apiKey.startsWith('sk-proj-placeholder')) {
@@ -219,7 +215,7 @@ ${inv.sources.map(s => `* ${s}`).join('\n')}
     context?: string
   ): AIInvestigationResult {
     const similarity = calculateNameSimilarity(aName, bName);
-    
+
     return {
       title: `Forensic Inquiry: Name Mismatch between ${aName} and ${bName}`,
       summary: `A thorough audit of capital flows indicates retail stock buying of public ticker ${bSymbol} (${bName}) driven by social media keywords and name similarity rather than underlying company performance associated with ${aName}.`,

@@ -37,7 +37,7 @@ export default function DashboardLayout({
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [alertsCount, setAlertsCount] = useState(3);
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-  
+
   const [notifications, setNotifications] = useState([
     { id: 1, title: 'Identity Confusion: PARLEIND', body: 'Volume spiked +1,200% on unverified biscuit factory rumor.', type: 'critical', time: '5m ago' },
     { id: 2, title: 'Social Hype Alert: SIGL', body: 'r/wallstreetbets threads surged +450% quoting Elon Musk.', type: 'high', time: '2h ago' },
@@ -207,4 +207,3 @@ export default function DashboardLayout({
     </div>
   );
 }
-

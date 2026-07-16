@@ -4,8 +4,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, AlertTriangle, FileText, TrendingUp } from 'lucide-react';
 
-
-
 const INVESTIGATIONS = [
   { id: 'inv_001', title: 'Investigation #TG-2026-PARLE: Biscuit Fame Mismatch', summary: 'Full investigation into how viral confectionery rumors drove BSE listed Parle Industries (PARLEIND) to consecutive upper circuit rallies.', rootCause: 'Viral tweets about Melody chocolates led retail buyers to search "Parle" on brokers and purchase the wrong listed company.', affectedCompanies: 'PARLEPROD, PARLEIND', createdAt: 'Jun 1, 2026', marketImpact: '+20% for 3 consecutive sessions at 45× average volume', investorWarning: 'PARLEIND has ZERO connection to biscuits, Melody, or Parle-G.', severity: 'critical' },
   { id: 'inv_002', title: 'Investigation #TG-2026-SIGNAL: Elon Musk Social Amplification', summary: 'Comprehensive audit of the 11,000% ticker mismatch between private Signal Messenger LLC and medical device maker Signal Advance (SIGL).', rootCause: 'Billionaire social media recommendation of "Signal" triggered algorithms to bulk-buy OTC ticker SIGL due to word match.', affectedCompanies: 'SIGNALAPP, SIGL', createdAt: 'May 31, 2026', marketImpact: 'Market cap inflated by $2.9B in days, followed by -94% crash', investorWarning: 'Never buy OTC tickers on social word-association without verifying the SEC-CIK identifier.', severity: 'high' },
@@ -99,5 +97,3 @@ export default function InvestigationsPage() {
     </div>
   );
 }
-
-
