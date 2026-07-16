@@ -59,7 +59,7 @@ TickerGuard AI was built to close this gap by providing institutional-grade risk
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                          USER                           │
-│       Brand Name A (Unlisted) vs. Listed Ticker B        │
+│       Brand Name A (Unlisted) vs. Listed Ticker B       │
 └────────────────────────────┬────────────────────────────┘
                              │
                              ▼
@@ -81,7 +81,7 @@ TickerGuard AI was built to close this gap by providing institutional-grade risk
                              ▼
 ┌─────────────────────────────────────────────────────────┐
 │               SCORING REPORT COMPILER                   │
-│     Computes Score (0-100) & Determines Severity Level │
+│     Computes Score (0-100) & Determines Severity Level  │
 │         (Safe / Monitor / High / Critical)              │
 └────────────────────────────┬────────────────────────────┘
                              │
@@ -105,7 +105,7 @@ TickerGuard AI was built to close this gap by providing institutional-grade risk
                              ▼
 ┌─────────────────────────────────────────────────────────┐
 │                LOCAL JSON DATABASE LAYER                │
-│         db.json persistence via JSONDatabase           │
+│         db.json persistence via JSONDatabase            │
 └─────────────────────────────────────────────────────────┘
 ```
 
